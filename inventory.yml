@@ -10,3 +10,14 @@ all:
       hosts:
         server3:
           ansible_host: 192.168.1.62
+
+all:
+  children:
+    web_servers:
+      hosts:
+        server1:
+          ansible_host: localhost
+    db_servers:
+      hosts:
+        server2:
+          ansible_host: localhost
