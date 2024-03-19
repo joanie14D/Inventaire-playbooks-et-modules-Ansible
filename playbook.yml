@@ -1,0 +1,21 @@
+- name: Installation de Nginx et MariaDB
+  hosts: all
+  become: yes
+  tasks:
+    - name: Installation de Nginx
+      hosts: web_servers
+      become: yes
+      tasks:
+        - name: Install Nginx
+          apt:
+            name: nginx
+            state: present
+
+    - name: Installation de MariaDB
+      hosts: db_servers
+      become: yes
+      tasks:
+        - name: Install MariaDB Server
+          apt:
+            name: mariadb-server
+            state: present
